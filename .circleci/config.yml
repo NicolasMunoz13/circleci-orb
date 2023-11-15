@@ -23,7 +23,7 @@ workflows:
           requires: 
             - orb-tools/pack
           vcs_type: << pipeline.project.type >>
-          orb_name: NicolasMunoz13/nicolaskcorb
+          orb_name: nicolaskcorb
           pub_type: dev
 
 
@@ -40,7 +40,7 @@ workflows:
       - orb-tools/publish:
           context: dev
           vcs_type: << pipeline.project.type >>
-          orb_name: NicolasMunoz13/nicolaskcorb
+          orb_name: nicolaskcorb
           pub_type: production
           requires:
             - orb-tools/pack
