@@ -1,23 +1,15 @@
 version: 2.1
 
-orbs:
-  orb-tools: circleci/orb-tools@12.0
-  shellcheck: circleci/shellcheck@3.2.0
+description: >
+  Sample orb description
+# What will your orb allow users to accomplish?
+# Descriptions should be short, simple, and informative.
 
-workflows:
-  publish-dev-orb:
-    when:
-      not:
-        equal: [ main, << pipeline.git.branch >> ]
-    jobs:
-      - orb-tools/lint
-      - shellcheck/check:
-          dir: ./src/scripts
-      - orb-tools/pack
-      - orb-tools/publish:
-          context: dev
-          requires: 
-            - orb-tools/pack
-          vcs_type: << pipeline.project.type >>
-          orb_name: NicolasMunoz13/nicolaskcorb
-          pub_type: dev
+# This information will be displayed in the orb registry and is not mandatory.
+display:
+  home_url: "https://www.example.com/docs"
+  source_url: "https://github.com/NicolasMunoz13/circleci-orb"
+
+# If your orb requires other orbs, you can import them like this. Otherwise remove the "orbs" stanza.
+# orbs:
+#  hello: circleci/hello-build@0.0.5
